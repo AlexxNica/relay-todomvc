@@ -1,25 +1,25 @@
+import makeRouteConfig from 'found/lib/jsx/makeRouteConfig';
+import Route from 'found/lib/jsx/Route';
 import React from 'react';
-import IndexRoute from 'react-router/lib/IndexRoute';
-import Route from 'react-router/lib/Route';
 
 import TodoApp from './components/TodoApp';
 import TodoList from './components/TodoList';
 import ViewerQueries from './queries/ViewerQueries';
 
-export default (
+export default makeRouteConfig(
   <Route
     path="/"
-    component={TodoApp}
+    Component={TodoApp}
     queries={ViewerQueries}
   >
-    <IndexRoute
-      component={TodoList}
+    <Route
+      Component={TodoList}
       queries={ViewerQueries}
       prepareParams={params => ({ ...params, status: 'any' })}
     />
     <Route
       path=":status"
-      component={TodoList}
+      Component={TodoList}
       queries={ViewerQueries}
     />
   </Route>
