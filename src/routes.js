@@ -33,8 +33,8 @@ export default makeRouteConfig(
       `}
       prepareParams={params => ({ ...params, status: 'active' })}
       prerender={({ done, extraData }) => {
-        if (done && extraData) {
-          const { numTodos, numCompletedTodos } = extraData;
+        if (done) {
+          const { numTodos, numCompletedTodos } = extraData.viewer;
           if (numTodos === numCompletedTodos) {
             throw new RedirectException('/completed');
           }
