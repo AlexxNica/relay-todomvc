@@ -25,7 +25,7 @@ module.exports = {
     }),
   ],
 
-  devtool: production ? 'source-map' : 'eval-source-map',
+  devtool: production ? 'source-map' : 'module-source-map',
 
   devServer: {
     historyApiFallback: true,
